@@ -1,0 +1,79 @@
+select * from applicationstatus;
+
+select * from users;
+
+drop table users;
+
+select * from applicants;
+
+desc applicants;
+desc users;
+
+drop table applicants;
+
+insert into applicants(APPLICANTID,AADHARNO,DOB,GENDER,NATIONALITY,PANNO,PHONE) values (1001,'123456789101','28thAug2022','Male','INDIAN','CWYPG45P','8171624986');
+
+COMMIT;
+
+insert into users(USERID,EMAIL,FIRSTNAME,LASTNAME,MIDDLENAME,PASSWORD,APPLICANTID) values (2001,'harshitgarg@gmail.com','yash','garg','na','har123',1001);
+insert into applicants(APPLICANTID,AADHARNO,DOB,GENDER,NATIONALITY,PANNO,PHONE) values (1002,'1234567','28thAug2072','Me','INDIAN','CWYPG45P','81716');
+
+
+
+DAY 2
+
+
+select * from applicationstatus;
+
+select * from users;
+
+select * from incomesalarieds;
+
+drop table users;
+
+select * from applicants;
+
+desc applicants;
+desc users;
+
+drop table applicants;
+
+insert into applicants(APPLICANTID,AADHARNO,DOB,GENDER,NATIONALITY,PANNO,PHONE) values (1001,'123456789101','28thAug2022','Male','INDIAN','CWYPG45P','8171624986');
+
+COMMIT;
+
+insert into users(USERID,EMAIL,FIRSTNAME,LASTNAME,MIDDLENAME,PASSWORD,APPLICANTID) values (2001,'harshitgarg@gmail.com','yash','garg','na','har123',1001);
+insert into applicants(APPLICANTID,AADHARNO,DOB,GENDER,NATIONALITY,PANNO,PHONE) values (1002,'1234567','28thAug2072','Me','INDIAN','CWYPG45P','81716');
+
+
+
+
+AFTER CREATE COM
+
+CREATE SEQUENCE appid_seq
+ START WITH 6001
+ INCREMENT BY 1;
+ 
+ 
+ commit;
+ CREATE SEQUENCE propid_seq
+ START WITH 101
+ INCREMENT BY 1;
+ 
+CREATE SEQUENCE accno_seq
+START WITH 96801
+INCREMENT BY 1;
+ 
+CREATE SEQUENCE srno_seq
+START WITH 1
+INCREMENT BY 1;
+
+drop sequence usr_seq;
+
+CREATE SEQUENCE usr_seq
+ START WITH 10001
+ INCREMENT BY 1;
+
+select * from users;
+
+
