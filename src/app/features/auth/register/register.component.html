@@ -1,0 +1,151 @@
+<div class="container-fluid my-4 p-2">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    class="needs-validation"
+  >
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        formControlName="firstName"
+      />
+      <div
+        *ngIf="firstName?.errors?.['required'] && firstName?.touched"
+        id="firstNameError"
+        class="form-text"
+      >
+        <small>*First Name is required.</small>
+      </div>
+    </div>
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        name="lastName"
+        formControlName="lastName"
+      />
+      <div
+        *ngIf="lastName?.errors?.['required'] && lastName?.touched"
+        id="lastNameError"
+        class="form-text"
+      >
+        <small>*Last Name is required.</small>
+      </div>
+    </div>
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        formControlName="email"
+      />
+      <div
+        *ngIf="email?.invalid && email?.touched"
+        id="emailError"
+        class="form-text"
+      >
+        <small *ngIf="email?.errors?.['required']">*Email is required.</small>
+        <small *ngIf="email?.errors?.['email']"
+          >*Valid email is required.</small
+        >
+      </div>
+    </div>
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        formControlName="password"
+      />
+      <div
+        *ngIf="password?.invalid && password?.touched"
+        id="passwordError"
+        class="form-text"
+      >
+        <small *ngIf="password?.errors?.['required']"
+          >*Password is required.</small
+        >
+        <small *ngIf="password?.errors?.['minlength']"
+          >*Min 6 chars required.</small
+        >
+      </div>
+    </div>
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      <div
+        *ngIf="confirmPassword?.invalid && confirmPassword?.touched"
+        id="confirmPasswordError"
+        class="form-text"
+      >
+        <small *ngIf="confirmPassword?.errors?.['required']"
+          >*Confirm Password is required.</small
+        >
+      </div>
+      <div
+        *ngIf="confirmPassword?.touched && registerForm?.errors?.['mismatch']"
+        id="confirmPasswordError"
+        class="form-text"
+      >
+        <small>*Passwords do not match</small>
+      </div>
+    </div>
+    <!-- Role -->
+    <div class="mb-3" [hidden]="true">
+      <label for="role" class="form-label">Role</label>
+      <input
+        type="text"
+        class="form-control"
+        id="role"
+        name="role"
+        formControlName="role"
+      />
+      <!-- <div
+        *ngIf="lastName?.errors?.['required'] && lastName?.touched"
+        id="lastNameError"
+        class="form-text"
+      >
+        <small>*Last Name is required.</small>
+      </div> -->
+    </div>
+    <!-- Submit -->
+    <button
+      type="submit"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+    <button
+      type="submit"
+      type="submit"
+      class="btn btn-primary"
+      (click)="resetRegisterForm()"
+    >
+      Reset
+    </button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>

@@ -1,0 +1,80 @@
+<div class="container-fluid my-4 p-2">
+  <form
+    #loginForm="ngForm"
+    (ngSubmit)="onSubmit(loginForm)"
+    class="needs-validation"
+  >
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        ngModel
+        required
+        #email="ngModel"
+      />
+      <div
+        *ngIf="email.invalid && email.touched"
+        id="emailError"
+        class="form-text"
+      >
+        <small *ngIf="email.errors?.['required']">Email is required.</small>
+      </div>
+    </div>
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        ngModel
+        required
+        #password="ngModel"
+      />
+      <div
+        *ngIf="password.invalid && password.touched"
+        id="passwordError"
+        class="form-text"
+      >
+        <small *ngIf="password.errors?.['required']"
+          >Password is required.</small
+        >
+      </div>
+    </div>
+    <!-- Consent -->
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="consent"
+        name="consent"
+        ngModel
+        required
+        #consent="ngModel"
+      />
+      <label class="form-check-label" for="consent">I agree</label>
+      <div
+        *ngIf="consent.invalid && consent.touched"
+        id="passwordError"
+        class="form-text"
+      >
+        <small *ngIf="consent.errors?.['required']">Agree to proceed.</small>
+      </div>
+    </div>
+
+    <a routerLink="/register">register</a>
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loginForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
