@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { jwtDecode } from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private decodedToken: any = null;
   constructor(private http: HttpClient) {}
 
   storeToken(token: string) {
@@ -21,5 +22,19 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!this.getToken();
+  }
+
+  getDecodedToken() {
+    if (!this.decodedToken) {
+      const token = this.getToken();
+      if (token) {
+        this.decodedToken = jwtDecode(token);
+      }
+    }
+    return this.decodedToken;
+  }
+
+  getUserId(): string | null {
+    return this.getDecodedToken()?.id || null;
   }
 }

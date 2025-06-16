@@ -8,6 +8,7 @@ export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -18,11 +19,31 @@ export const routes: Routes = [
       },
       {
         path: 'user-dashboard',
-        canActivate: [authGuard],
         loadComponent: () =>
           import('../app/features/user/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent
           ),
+      },
+      {
+        path: 'products',
+        loadComponent: () =>
+          import(
+            './features/product/product-dashboard/product-dashboard.component'
+          ).then((m) => m.ProductDashboardComponent),
+      },
+      {
+        path: 'products/add',
+        loadComponent: () =>
+          import(
+            './features/product/product-create/product-create.component'
+          ).then((m) => m.ProductCreateComponent),
+      },
+      {
+        path: 'products/edit/:id',
+        loadComponent: () =>
+          import(
+            './features/product/product-create/product-create.component'
+          ).then((m) => m.ProductCreateComponent),
       },
     ],
   },
