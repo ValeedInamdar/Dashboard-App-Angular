@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">Home</a>
+    <a class="navbar-brand" routerLink="/landing">Home</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -18,16 +18,29 @@
           <a class="nav-link active" aria-current="page" routerLink="/login">Login</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/products">Product</a>
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/products"
+            >Product</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/users"
+            >Users</a
+          >
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link" routerLink="/user-dashboard">User</a> -->
+          <a class="nav-link" href="#" (click)="logout($event)">Logout</a>
         </li>
+        <li class="nav-item"></li>
       </ul>
-      <span class="navbar-text"> User Info </span>
+      <span class="navbar-text"
+        ><a class="nav-link" routerLink="/profile">User</a></span
+      >
     </div>
   </div>
 </nav>

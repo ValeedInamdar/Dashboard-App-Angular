@@ -30,7 +30,7 @@ export class LoginComponent {
       next: (value) => {
         this.authService.storeToken(value.token);
         alert('Login Successful');
-        this.router.navigate(['/user-dashboard']);
+        this.router.navigate(['/landing']);
       },
       error: (err) => alert('Login failed'),
     });

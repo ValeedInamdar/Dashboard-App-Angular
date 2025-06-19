@@ -11,7 +11,8 @@ import { AuthService } from '../../core/services/auth.service';
 export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
-  logout() {
+  logout(event: Event) {
+    event.preventDefault()
     this.authService.logout();
     this.router.navigate(['close-window']);
   }

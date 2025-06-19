@@ -11,17 +11,24 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: '',
+        path: 'landing',
         loadComponent: () =>
           import('../app/features/home/landing/landing.component').then(
             (m) => m.LandingComponent
           ),
       },
       {
-        path: 'user-dashboard',
+        path: 'users',
         loadComponent: () =>
           import('../app/features/user/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent
+          ),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import('../app/features/user/profile/profile.component').then(
+            (m) => m.ProfileComponent
           ),
       },
       {
@@ -71,6 +78,11 @@ export const routes: Routes = [
           import('../app/shared/close-window/close-window.component').then(
             (m) => m.CloseWindowComponent
           ),
+      },
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full', // redirect from `/` inside layout to `/dashboard`
       },
     ],
   },
