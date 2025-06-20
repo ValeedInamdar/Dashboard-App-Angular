@@ -1,0 +1,13 @@
+<div class="image-upload">
+  <input
+    type="file"
+    (change)="onFileChange($event)"
+    #fileInput
+    accept="image/*"
+  />
+
+  <div *ngIf="previewUrl" class="preview">
+    <img [src]="previewUrl" alt="Preview" />
+    <button type="button" (click)="clear()">Remove</button>
+  </div>
+</div>

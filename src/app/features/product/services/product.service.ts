@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl = environment.apiBaseUrl;
+  private baseUrl = `${environment.apiBaseUrl}/api/v1`;
   constructor(private http: HttpClient) {}
 
-  createProduct(product: Product): Observable<Product> {
+  createProduct(product: FormData): Observable<Product> {
     return this.http.post<Product>(`${this.baseUrl}/product/create`, product);
   }
 
@@ -27,7 +27,7 @@ export class ProductService {
     return this.http.get<{ msg: string; data: Product }>(`${this.baseUrl}/product/${id}`);
   }
 
-  updateProduct(id: string, data: Product): Observable<any> {
+  updateProduct(id: string, data: FormData): Observable<any> {
     return this.http.put(`${this.baseUrl}/product/update/${id}`, data);
   }
 }

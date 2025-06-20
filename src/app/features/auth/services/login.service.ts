@@ -8,7 +8,7 @@ import { environment } from '../../../../environments/environment';
 })
 
 export class LoginService {
-  private baseUrl = environment.apiBaseUrl;
+  private baseUrl = `${environment.apiBaseUrl}/api/v1`;
   constructor(private http: HttpClient) {}
   loginUser(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/auth/login`, credentials);

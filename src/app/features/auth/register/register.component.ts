@@ -48,8 +48,7 @@ export class RegisterComponent {
     const user: User = this.registerForm.value;
 
     this.registerService.createUser(user).subscribe({
-      next: (created) => {
-        console.log('User created:', created);
+      next: () => {
         this.registerForm.reset();
         this.routeToCloseWindow();
       },

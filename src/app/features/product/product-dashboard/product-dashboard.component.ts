@@ -3,6 +3,7 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-product-dashboard',
@@ -12,8 +13,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class ProductDashboardComponent implements OnInit {
   productList: Product[] = [];
-
-  constructor(private productService: ProductService,private router:Router) {}
+  imgBaseUrl = environment.apiBaseUrl;
+  constructor(private productService: ProductService, private router: Router) {}
   ngOnInit(): void {
     this.getAllProducts();
   }
@@ -30,14 +31,14 @@ export class ProductDashboardComponent implements OnInit {
   deleteProduct(id: string) {
     if (confirm('Are you sure you want to delete this?')) {
       this.productService.deleteProduct(id).subscribe({
-        next: (value) => {
+        next: () => {
           alert('Product deleted successfully');
           this.getAllProducts();
         },
         error: (err) => console.error(err),
       });
     } else {
-      console.log('Deletion cancelled.');
+      console.warn('Deletion cancelled.');
     }
   }
 

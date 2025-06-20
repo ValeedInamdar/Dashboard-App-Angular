@@ -1,0 +1,9 @@
+.preview img {
+  max-width: 200px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+}
+button {
+  margin-top: 5px;
+  cursor: pointer;
+}

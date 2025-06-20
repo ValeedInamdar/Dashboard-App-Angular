@@ -8,7 +8,7 @@ import { User } from '../../auth/models/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl = environment.apiBaseUrl;
+  private baseUrl = `${environment.apiBaseUrl}/api/v1`;
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<any> {

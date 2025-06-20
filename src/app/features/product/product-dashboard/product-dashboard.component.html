@@ -9,6 +9,7 @@
         <th scope="col">Category</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Image</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -20,6 +21,13 @@
         <td>{{ product.category }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.quantity }}</td>
+        <td>
+          <img
+            style="width: 100%; height: 50px"
+            [src]="imgBaseUrl + product.imageUrl"
+            alt="{{ product.name }}"
+          />
+        </td>
         <td>
           <i class="bi bi-pencil-square" (click)="editProduct(product._id!)"></i
           ><i class="bi bi-trash" (click)="deleteProduct(product._id!)"></i>
